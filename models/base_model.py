@@ -8,13 +8,13 @@ class BaseModel():
                 self.id = str(uuid.uuid4())
                 self.created_at = datetime.now()
                 self.updated_at = datetime.now()
+                return 
 
             for key, value in kwargs.items():
                 if key == '__class__':
                     continue
                 if key == 'updated_at' or key == 'created_at':
                     value == datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                    continue
 
         def __str__(self):
             return(f"{[self.__class__.__name__]},{(self.id)},{self.__dict__}")
