@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
+from models.engine.file_storage import storage
 
 class BaseModel():
         def __init__(self, *args, **kwargs):
@@ -21,7 +22,10 @@ class BaseModel():
             return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
         def save(self):
-            self.updated_at = datetime.now()
+            if storage is not None:
+                self.updated_at = datetime.now()
+                storage.save()
+                storage.new(self)
 
         def to_dict(self):
             new_dict = self.__dict__.copy()
