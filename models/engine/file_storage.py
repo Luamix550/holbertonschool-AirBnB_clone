@@ -19,7 +19,6 @@ class FileStorage:
             json.dump(self.__objects,write_file)
 
     def reload(self):
-        #try:
         if os.path.exists(self.__file_path):
             with open(self.__file_path, "r") as read_file:
                 data = json.load(read_file)
