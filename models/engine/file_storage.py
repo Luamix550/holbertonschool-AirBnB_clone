@@ -23,7 +23,7 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r') as file:
                 loaded_objects = json.load(file)
-                for key, obj_dict in loaded_objects.items():
+                for key, value in loaded_objects.items():
                     class_name, obj_id = key.split('.')
                     from models.base_model import BaseModel
                     obj = BaseModel(**value)
