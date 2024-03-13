@@ -17,5 +17,8 @@ class HBNBCommand(cmd.Cmd):
         """This method shows EOF on the console """
         sys.exit()
 
+    def empyline(self):
+        pass
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
