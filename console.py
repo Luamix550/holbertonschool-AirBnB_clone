@@ -17,8 +17,5 @@ class HBNBCommand(cmd.Cmd):
         """This method shows EOF on the console """
         sys.exit()
 
-    do_EOF = do_quit
-
-
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
