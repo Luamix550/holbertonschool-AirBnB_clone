@@ -11,12 +11,10 @@ class BaseModel():
                 self.updated_at = datetime.now()
                 return
             for key, value in kwargs.items():
-                if key == '__class__':
-                    continue
+                if key != '__class__':
+                    self.__dict__[key] = value
                 if key == 'created_at' or key == 'updated_at':
                     self.__dict__[key] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                continue
-            self.__dict__[key] = value
         def __str__(self):
             return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
