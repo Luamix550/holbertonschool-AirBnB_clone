@@ -1,5 +1,6 @@
 import json
-import os
+from models import BaseModel
+import importlib
 
 class FileStorage:
     __file_path = "file.json"
@@ -23,8 +24,11 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r') as file:
                 loaded_objects = json.load(file)
-                for key, obj_dict in loaded_objects.items():
+                for key, value in loaded_objects.items():
                     class_name, obj_id = key.split('.')
-                    self.__objects[key] = globals()[class_name](**obj_dict)
+                    module = importlib.import_module('models')
+                    class_ = getattr(module, class_name)
+                    obj = class_(**value)
+                    self.__objects[key] = obj
         except FileNotFoundError:
             pass
