@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+"""This module provides the entry point of the command interpreter"""
 import cmd
 import sys
-"""This module provides the entry point of the command interpreter"""
+
 
 
 class HBNBCommand(cmd.Cmd):
