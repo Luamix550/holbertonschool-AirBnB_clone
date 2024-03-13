@@ -17,9 +17,10 @@ class HBNBCommand(cmd.Cmd):
         """This method shows EOF on the console """
         sys.exit()
 
-    def empyline(self):
+    def empyline(self,arg):
         """This method is called when an empty line is entered"""
-        pass
+        if arg == "" or arg == " ":
+            pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
