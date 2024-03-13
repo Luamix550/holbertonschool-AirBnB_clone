@@ -18,6 +18,7 @@ class HBNBCommand(cmd.Cmd):
         sys.exit()
 
     def empyline(self):
+        """This method is called when an empty line is entered"""
         pass
 
 if __name__ == '__main__':
