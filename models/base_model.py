@@ -17,14 +17,15 @@ class BaseModel():
                     self.__dict__[key] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 continue
             self.__dict__[key] = value
-
         def __str__(self):
             return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
         def save(self):
-            storage.save()
-            storage.new(self)
             self.updated_at = datetime.now()
+            if storage is not None:
+                self.updated_at = datetime.now()
+                storage.save()
+                storage.new(self)
 
         def to_dict(self):
             new_dict = self.__dict__.copy()
