@@ -55,25 +55,5 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** class doesn't exist **")
 
-    def do_destroy(self,line):
-        
-
-
-
-
-
-
-
-
-
-"""        return
-        try:
-            Class_id = line.split()
-            data = Class_id[0] + "." + Class_id[1]
-            if not Class_id[1]:
-                print("** instance id missing **")
-        except NameError:
-            print("** class doesn't exist **")
-"""
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
