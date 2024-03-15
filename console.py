@@ -60,21 +60,21 @@ class HBNBCommand(cmd.Cmd):
         """Deletes an instance based on the class name and id """
         if not line:
             print("** class name missing **")
-        else:
-            try:
-                class_name, instance_id = line.split()
-                if class_name not in storage.all():
-                    print("** class doesn't exist **")
-                else:
-                    key = class_name + "." + instance_id
-                    if key not in storage.all()[class_name]:
-                        print("** no instance found **")
-                    else:
-                        del storage.all()[class_name][key]
-                        storage.save()
-            except ValueError:
-                if len(line.split()) == 1:
-                    print("** instance id missing **")
+            return
+        try:
+            class_name, instance_id = line.split()
+        except ValueError:
+            print("** instance id missing **")
+            return
+        if class_name not in list_class:
+            print("** class doesn't exist **")
+            return
+        key = class_name + "." + instance_id
+        if key not in storage.all():
+            print("** no instance found **")
+            return
+        del storage.all()[key]
+        storage.save()
 
     def do_all(self, line):
         instance_list = []
