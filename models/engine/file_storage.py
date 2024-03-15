@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json
 import os
+
 """
 Class responsible for managing serialization and deserialization of objects to and from a JSON file.
 """
@@ -39,6 +40,7 @@ class FileStorage:
             json.dump(self.__objects, write_file)
 
     def reload(self):
+        from models.user import User
         """
         Reloads serialized objects from the JSON file if it exists.
         """
