@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """This module is the file storage class"""
+
+
 import json
 
 
@@ -28,6 +30,7 @@ class FileStorage:
 
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON file (__file_path)"""
+        from models.user import User
         try:
             with open(self.__file_path, 'r') as file:
                 loaded_objects = json.load(file)
