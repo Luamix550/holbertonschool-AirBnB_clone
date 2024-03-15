@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
             print(" class name missing ")
         else:
             class_name = line.split()
-            if class_name[0] not in list_class:
+            if class_name[0] not in HBNBCommand.list_class:
                 print("** class doesn't exist **")
                 return
             if len(class_name) == 1:
@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
         except ValueError:
             print("** instance id missing **")
             return
-        if class_name not in list_class:
+        if class_name not in HBNBCommand.list_class:
             print("** class doesn't exist **")
             return
         key = class_name + "." + instance_id
@@ -112,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
                 attribute_name = split_line[2]
                 value = split_line[3]
                 cn_id = class_name + "." + instance_id
-                if class_name not in list_class:
+                if class_name not in HBNBCommand.list_class:
                     print("** class doesn't exist **")
                     return
                 if cn_id not in storage.all().keys():
