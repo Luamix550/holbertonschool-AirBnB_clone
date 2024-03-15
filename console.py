@@ -1,31 +1,30 @@
 #!/usr/bin/python3
+
 """This module provides the entry point of the command interpreter"""
 import cmd
 from models.base_model import BaseModel
 from models import storage
+
 
 class HBNBCommand(cmd.Cmd):
     """This class shows the basic console"""
     prompt = "(hbnb) "
 
     def do_EOF(self, line):
-        """Handles End Of File character.
-        """
+        """Handles End Of File character."""
         print()
         return True
 
     def do_quit(self, line):
-        """Exits the program.
-        """
+        """Exits the program."""
         return True
 
     def emptyline(self):
-        """Doesn't do anything on ENTER.
-        """
+        """Doesn't do anything on ENTER."""
         pass
 
     def do_create(self, line):
-        """Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id."""
+        """Creates a new instance of BaseModel"""
         if not line:
             print("** class name missing **")
         else:
@@ -37,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_show(self, line):
-        """Prints the string representation of an instance based on the class name and id."""
+        """Prints the string representation of an instance"""
         if not line:
             print("** class name missing **")
         else:
@@ -55,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
 
     def do_destroy(self, line):
-        """Deletes an instance based on the class name and id (save the change into the JSON file)."""
+        """Deletes an instance based on the class name and id """
         if not line:
             print("** class name missing **")
         else:
@@ -73,6 +72,22 @@ class HBNBCommand(cmd.Cmd):
             except ValueError:
                 if len(line.split()) == 1:
                     print("** instance id missing **")
+
+    def do_all(self, line):
+        instance_list = []
+        if not line:
+            for key, value in storage.all().items():
+                instance_list.append(str(value))
+            print(instance_list)
+        else:
+            name_class = line.split()[0]
+            if name_class not in storage.all():
+                print("** class doesn't exist **")
+            else:
+                for key, value in storage.all()[name_class].items():
+                    instance_list.append(str(value))
+            print(instance_list)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
