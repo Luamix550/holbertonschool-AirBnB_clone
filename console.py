@@ -5,6 +5,7 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
+list_class = ["BaseModel"]
 
 
 class HBNBCommand(cmd.Cmd):
@@ -41,8 +42,6 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print(" class name missing ")
         else:
-            list_class = set([
-                value.__class__.__name__ for value in storage.all().values()])
             class_name = line.split()
             if class_name[0] not in list_class:
                 print("** class doesn't exist **")
@@ -93,10 +92,31 @@ class HBNBCommand(cmd.Cmd):
             print(instance_list)
 
     def do_update(self, line):
-        
-        
-        
-        
-        
+        if not line:
+            print("** class name missing **")
+        else:
+            split_line = line.split()
+            if len(split_line) <= 1:
+                print("** Instance id missing **")
+                return
+            elif len(split_line) <= 2:
+                print("** attribute name missing **")
+                return
+            elif len(split_line) <= 3:
+                print("** value missing **")
+                return
+            else:
+                class_name = split_line[0]
+                instance_id = split_line[1]
+                attribute_name = split_line[2]
+                value = split_line[3]
+                cn_id = class_name + "." + instance_id
+                if class_name not in list_class:
+                    print("** class doesn't exist **")
+                    return
+                if cn_id not in storage.all().keys():
+                    print("** no instance found **")
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
