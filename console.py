@@ -2,15 +2,17 @@
 
 """This module provides the entry point of the command interpreter"""
 import cmd
+import models
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
-list_class = ["BaseModel"]
+
 
 
 class HBNBCommand(cmd.Cmd):
     """This class shows the basic console"""
     prompt = "(hbnb) "
+    list_class = ["BaseModel"]
 
     def do_EOF(self, line):
         """Handles End Of File character."""
@@ -78,18 +80,17 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         instance_list = []
-        if not line:
+        if line in HBNBCommand.list_class:
             for key, value in storage.all().items():
-                instance_list.append(str(value))
+                if value.to_dict()['__class__'] == line:
+                    instance_list.append(value.__str__())
+            print(instance_list)
+        elif not line:
+            for key, value in storage.all().items():
+                instance_list.append(value.__str__())
             print(instance_list)
         else:
-            name_class = line.split()[0]
-            if name_class not in storage.all():
-                print("** class doesn't exist **")
-            else:
-                for key, value in storage.all()[name_class].items():
-                    instance_list.append(str(value))
-            print(instance_list)
+            print("** class doesn't exist **")
 
     def do_update(self, line):
         if not line:
