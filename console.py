@@ -88,6 +88,11 @@ class HBNBCommand(cmd.Cmd):
                     instance_list.append(str(value))
             print(instance_list)
 
-
+    def do_update(self, line):
+        
+        
+        
+        
+        
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
