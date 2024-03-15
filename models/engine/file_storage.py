@@ -9,8 +9,9 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj
+        self.save()
 
     def save(self):
         serialized_objects = {}

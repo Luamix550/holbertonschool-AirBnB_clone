@@ -9,6 +9,7 @@ class BaseModel():
             if not kwargs:
                 self.created_at = datetime.now()
                 self.updated_at = datetime.now()
+                storage.new(self)
                 return
             for key, value in kwargs.items():
                 if key == '__class__':
@@ -23,10 +24,7 @@ class BaseModel():
 
         def save(self):
             self.updated_at = datetime.now()
-            if storage is not None:
-                self.updated_at = datetime.now()
-                storage.save()
-                storage.new(self)
+            storage.save()
 
         def to_dict(self):
             new_dict = self.__dict__.copy()
