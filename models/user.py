@@ -3,7 +3,7 @@
 
 
 from models.base_model import BaseModel
-
+from models import storage
 
 class User(BaseModel):
     """Since BaseModel already handles the initialization

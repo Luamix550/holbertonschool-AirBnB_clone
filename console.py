@@ -39,20 +39,23 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         """Prints the string representation of an instance"""
         if not line:
-            print("** class name missing **")
+            print(" class name missing ")
         else:
-            try:
-                class_name, instance_id = line.split()
-                if class_name not in storage.all():
-                    print("** class doesn't exist **")
-                else:
-                    key = class_name + "." + instance_id
-                    if key not in storage.all()[class_name]:
-                        print("** no instance found **")
-                    else:
-                        print(storage.all()[class_name][key])
-            except ValueError:
+            list_class = set([
+                value.__class__.__name__ for value in storage.all().values()])
+            class_name = line.split()
+            if class_name[0] not in list_class:
+                print("** class doesn't exist **")
+                return
+            if len(class_name) == 1:
                 print("** instance id missing **")
+                return
+            instance_id = class_name[1]
+            key = class_name[0] + "." + instance_id
+            if key not in storage.all().keys():
+                print(" no instance found ")
+            else:
+                print(storage.all()[key])
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id """
