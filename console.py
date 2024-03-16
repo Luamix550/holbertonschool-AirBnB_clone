@@ -6,8 +6,15 @@ import models
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.amenity import Amenity
 
-list_class = ["BaseModel", "User", "email", "password", "first_name", "last_name"]
+list_class = ["BaseModel", "User", "State", "City", 
+              "Amenity", "Place", "Review", "email", 
+              "password", "first_name", "last_name"]
 
 
 class HBNBCommand(cmd.Cmd):
