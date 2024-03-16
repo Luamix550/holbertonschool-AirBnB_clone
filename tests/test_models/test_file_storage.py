@@ -9,7 +9,7 @@ class test_FileStorage(unittest.TestCase):
         file_storage module is actually working in order
         to succesfully create this file"""
         instance = FileStorage()
-        desired_file_path = "file.json"
+        desired_file_path = "__file_path"
         self.assertFalse(hasattr(instance, '__file_path'))
         instance.save()
         self.assertTrue(hasattr(instance, '__file_path' ))
