@@ -117,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
                     return
                 if cn_id not in storage.all().keys():
                     print("** no instance found **")
-                for key, value in storage.all():
+                for key, value in storage.all().items():
                     if cn_id == key:
                         value.__dict__[attribute_name] = value_attr
                         storage.save()
