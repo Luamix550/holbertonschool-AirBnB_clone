@@ -31,6 +31,11 @@ class FileStorage:
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON file (__file_path)"""
         from models.user import User
+        from models.city import City
+        from models.place import Place
+        from models.review import Review
+        from models.state import State
+        from models.amenity import Amenity
         try:
             with open(self.__file_path, 'r') as file:
                 loaded_objects = json.load(file)
