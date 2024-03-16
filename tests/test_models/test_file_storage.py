@@ -13,4 +13,4 @@ class test_FileStorage(unittest.TestCase):
         self.assertFalse(hasattr(instance, '__file_path'))
         instance.save()
         self.assertTrue(hasattr(instance, '__file_path' ))
-        self.assertEqual(instance.__file_path, '__file_path')
+        self.assertEqual(instance.__file_path, desired_file_path)
