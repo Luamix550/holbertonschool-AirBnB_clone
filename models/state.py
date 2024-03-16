@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This class provides  a state. """
+""" This class provides  a state.  """
 from models import base_model
 
 
