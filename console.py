@@ -12,8 +12,8 @@ from models.review import Review
 from models.state import State
 from models.amenity import Amenity
 
-list_class = ["BaseModel", "User", "State", "City", 
-              "Amenity", "Place", "Review", "email", 
+list_class = ["BaseModel", "User", "State", "City",
+              "Amenity", "Place", "Review", "email",
               "password", "first_name", "last_name"]
 
 
