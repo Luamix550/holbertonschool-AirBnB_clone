@@ -5,6 +5,6 @@
 from models.base_model import BaseModel
 
 
-class Amenity(BaseModels):
+class Amenity(BaseModel):
     """Representation of Amenity"""
     name = ""
