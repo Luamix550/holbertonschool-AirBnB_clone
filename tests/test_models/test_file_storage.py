@@ -6,6 +6,7 @@ from models.base_model import BaseModel
 import os
 
 class TestFileStorage(unittest.TestCase):
+    """ This class testing fileStorage """
     def setUp(self):
         """Preparar el entorno antes de cada prueba"""
         self.storage = FileStorage()
@@ -14,6 +15,17 @@ class TestFileStorage(unittest.TestCase):
     def tearDown(self):
         """Limpiar el entorno después de cada prueba"""
         del self.storage
+
+    def test_file_path(self):
+        """Method to test if the file_path method from
+        file_storage module is actually working in order
+        to succesfully create this file"""
+        instance = FileStorage()
+        desired_file_path = "__file_path"
+        self.assertFalse(hasattr(instance, '__file_path'))
+        instance.save()
+        self.assertTrue(hasattr(instance, '__file_path' ))
+        self.assertEqual(instance.__file_path, desired_file_path)
 
     def test__objects(self):
         """Test para verificar el atributo __objects"""
@@ -53,3 +65,5 @@ class TestFileStorage(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
