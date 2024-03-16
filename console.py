@@ -108,10 +108,7 @@ class HBNBCommand(cmd.Cmd):
                 return
             else:
                 class_name = split_line[0]
-                instance_id = split_line[1]
-                attribute_name = split_line[2]
-                value = split_line[3]
-                cn_id = class_name + "." + instance_id
+                cn_id = split_line[1]
                 if class_name not in HBNBCommand.list_class:
                     print("** class doesn't exist **")
                     return
