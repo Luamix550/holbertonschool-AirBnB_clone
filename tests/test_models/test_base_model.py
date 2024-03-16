@@ -10,7 +10,7 @@ class testBaseModel_save(unittest.TestCase):
         instance = BaseModel()
         instance.save()
         self.assertIsNotNone(instance.updated_at)
-    
+
     def test_to_dict(self):
         """Testing to_dict method creatin a directory
         from the instance atributtes and checking if
@@ -31,6 +31,7 @@ class testBaseModel_save(unittest.TestCase):
         }
 
         self.assertEqual(actual_result, desired_result)
+
 
 if __name__ == '__main__':
     unittest.main()
