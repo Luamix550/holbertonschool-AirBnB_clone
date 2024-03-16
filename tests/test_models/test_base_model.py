@@ -32,5 +32,6 @@ class testBaseModel(unittest.TestCase):
 
         self.assertEqual(actual_result, desired_result)
 
+
 if __name__ == '__main__':
     unittest.main()
