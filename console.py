@@ -39,8 +39,6 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** class doesn't exist **")
 
-
-
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id """
         if not line:
@@ -93,13 +91,17 @@ class HBNBCommand(cmd.Cmd):
                 class_name = split_line[0]
                 instance_id = split_line[1]
                 attribute_name = split_line[2]
-                value = split_line[3]
+                value_attr = split_line[3]
                 cn_id = class_name + "." + instance_id
                 if class_name not in HBNBCommand.list_class:
                     print("** class doesn't exist **")
                     return
                 if cn_id not in storage.all().keys():
                     print("** no instance found **")
+                for key, value in storage.all().keys():
+                    if cn_id == key:
+                        value.__dict__[attribute_name] = value_attr
+                        storage.save()
 
 
 if __name__ == '__main__':
