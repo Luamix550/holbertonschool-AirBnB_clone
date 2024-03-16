@@ -3,7 +3,7 @@ import unittest
 from models.base_model import BaseModel
 
 
-class test_base_model(unittest.TestCase):
+class testBaseModel_save(unittest.TestCase):
 
     def test_do_save(self):
         instance = BaseModel()
