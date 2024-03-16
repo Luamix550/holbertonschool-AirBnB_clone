@@ -39,6 +39,25 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** class doesn't exist **")
 
+    def do_show(self, line):
+        """Prints the string representation of an instance"""
+        if not line:
+            print(" class name missing ")
+        else:
+            class_name = line.split()
+            if class_name[0] not in HBNBCommand.list_class:
+                print("** class doesn't exist **")
+                return
+            if len(class_name) == 1:
+                print("** instance id missing **")
+                return
+            instance_id = class_name[1]
+            key = class_name[0] + "." + instance_id
+            if key not in storage.all().keys():
+                print("** no instance found **")
+            else:
+                print(storage.all()[key])
+
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id """
         if not line:
