@@ -5,7 +5,7 @@ from models import storage
 
 
 class BaseModel():
-    """ class BaseModel that defines all common attributes/methods for other classes """
+    """ class BaseModel that defines all common attributes/methods """
     def __init__(self, *args, **kwargs):
         """Initializes a new instance of BaseModel."""
         self.id = str(uuid.uuid4())
@@ -19,8 +19,8 @@ class BaseModel():
                 continue
             if key == 'created_at' or key == 'updated_at':
                 self.__dict__[key] = datetime.strptime(
-                value,
-                '%Y-%m-%dT%H:%M:%S.%f'
+                    value,
+                    '%Y-%m-%dT%H:%M:%S.%f'
                 )
             else:
                 self.__dict__[key] = value
@@ -30,7 +30,7 @@ class BaseModel():
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """Saves the instance by updating the update date and time and saving it to storage."""
+        """Saves the instance by updating the update date and time"""
         self.updated_at = datetime.now()
         storage.save()
 
