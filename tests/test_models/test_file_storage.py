@@ -12,5 +12,5 @@ class test_FileStorage(unittest.TestCase):
         desired_file_path = "file.json"
         self.assertFalse(hasattr(istance, '__file_path'))
         instance.save()
-        self.assertTrue(hasattr(desired_result, __file_path))
-        self.assertEqual(instance.__file_path, )
+        self.assertTrue(hasattr(instance, '__file_path'))
+        self.assertEqual(instance.__file_path, desired_file_path)
