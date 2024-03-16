@@ -98,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             split_line = line.split()
             if len(split_line) <= 1:
-                print("** Instance id missing **")
+                print("** instance id missing **")
                 return
             elif len(split_line) <= 2:
                 print("** attribute name missing **")
