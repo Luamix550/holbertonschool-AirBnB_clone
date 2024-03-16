@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
         except ValueError:
             print("** instance id missing **")
             return
-        if class_name not in HBNBCommand.list_class:
+        if class_name not in list_class:
             print("** class doesn't exist **")
             return
         cn_id = class_name + "." + instance_id
