@@ -80,7 +80,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         instance_list = []
-        if line in HBNBCommand.list_class:
+        if line in list_class:
             for key, value in storage.all().items():
                 if value.to_dict()['__class__'] == line:
                     instance_list.append(value.__str__())
@@ -112,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
                 attribute_name = split_line[2]
                 value_attr = split_line[3]
                 cn_id = class_name + "." + instance_id
-                if class_name not in HBNBCommand.list_class:
+                if class_name not in list_class:
                     print("** class doesn't exist **")
                     return
                 if cn_id not in storage.all().keys():
