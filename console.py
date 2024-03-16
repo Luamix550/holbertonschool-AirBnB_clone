@@ -64,9 +64,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         try:
-            line_split = line.split()
-            class_name = line_split[0]
-            instance_id = line_split[1]
+            class_name, instance_id = line.split()
         except ValueError:
             print("** instance id missing **")
             return
