@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ This class provides  a state.  """
-from models import base_model
+
+from models.base_model import BaseModel
 
 
 class State(BaseModel):
