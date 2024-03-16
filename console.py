@@ -7,12 +7,12 @@ from models.base_model import BaseModel
 from models import storage
 from models.user import User
 
+list_class = ["BaseModel", "User", "email", "password", "first_name", "last_name"]
 
 
 class HBNBCommand(cmd.Cmd):
     """This class shows the basic console"""
     prompt = "(hbnb) "
-    list_class = ["BaseModel",  "email", "password", "first_name", "last_name"]
 
     def do_EOF(self, line):
         """Handles End Of File character."""
