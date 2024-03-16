@@ -3,9 +3,10 @@
 
 
 from models.base_model import BaseModel
+from models import storage
 
 
-class Place(BaseModels):
+class Place(BaseModel):
     """representation of a place"""
     city_id = ""
     user_id = ""

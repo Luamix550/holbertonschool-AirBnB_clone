@@ -3,8 +3,9 @@
 
 
 from models.base_model import BaseModel
+from models import storage
 
 
-class Amenity(BaseModels):
+class Amenity(BaseModel):
     """Representation of Amenity"""
     name = ""
