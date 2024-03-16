@@ -64,18 +64,20 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         try:
-            class_name, instance_id = line.split()
+            line_split = line.split()
+            class_name = line_split[0]
+            instance_id = line_split[1]
         except ValueError:
             print("** instance id missing **")
             return
         if class_name not in HBNBCommand.list_class:
             print("** class doesn't exist **")
             return
-        key = class_name + "." + instance_id
-        if key not in storage.all():
+        cn_id = class_name + "." + instance_id
+        if cn_id not in storage.all():
             print("** no instance found **")
             return
-        del storage.all()[key]
+        del storage.all()[cn_id]
         storage.save()
 
     def do_all(self, line):
