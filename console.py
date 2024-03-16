@@ -8,7 +8,6 @@ from models import storage
 from models.user import User
 
 
-
 class HBNBCommand(cmd.Cmd):
     """This class shows the basic console"""
     prompt = "(hbnb) "
@@ -80,17 +79,18 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         instance_list = []
-        if line in HBNBCommand.list_class:
-            for key, value in storage.all().items():
-                if value.to_dict()['__class__'] == line:
-                    instance_list.append(value.__str__())
-            print(instance_list)
-        elif not line:
-            for key, value in storage.all().items():
-                instance_list.append(value.__str__())
-            print(instance_list)
+        if line:
+            if line not in HBNBCommand.list_class:
+                print("** class doesn't exist **")
+            return
+        for key, value in storage.all().items():
+            if value.__class__.__name__ == line:
+                instance_list.append(str(value))
         else:
-            print("** class doesn't exist **")
+            for key, value in storage.all().items():
+                instance_list.append(str(value))
+        print(instance_list)
+
 
     def do_update(self, line):
         if not line:
