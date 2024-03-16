@@ -8,6 +8,7 @@ from models import storage
 from models.user import User
 
 
+
 class HBNBCommand(cmd.Cmd):
     """This class shows the basic console"""
     prompt = "(hbnb) "
@@ -38,24 +39,7 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** class doesn't exist **")
 
-    def do_show(self, line):
-        """Prints the string representation of an instance"""
-        if not line:
-            print(" class name missing ")
-        else:
-            class_name = line.split()
-            if class_name[0] not in HBNBCommand.list_class:
-                print("** class doesn't exist **")
-                return
-            if len(class_name) == 1:
-                print("** instance id missing **")
-                return
-            instance_id = class_name[1]
-            key = class_name[0] + "." + instance_id
-            if key not in storage.all().keys():
-                print("** no instance found **")
-            else:
-                print(storage.all()[key])
+
 
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id """
@@ -79,18 +63,17 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         instance_list = []
-        if line:
-            if line not in HBNBCommand.list_class:
-                print("** class doesn't exist **")
-            return
-        for key, value in storage.all().items():
-            if value.__class__.__name__ == line:
-                instance_list.append(str(value))
-        else:
+        if line in HBNBCommand.list_class:
             for key, value in storage.all().items():
-                instance_list.append(str(value))
-        print(instance_list)
-
+                if value.to_dict()['__class__'] == line:
+                    instance_list.append(value.__str__())
+            print(instance_list)
+        elif not line:
+            for key, value in storage.all().items():
+                instance_list.append(value.__str__())
+            print(instance_list)
+        else:
+            print("** class doesn't exist **")
 
     def do_update(self, line):
         if not line:
