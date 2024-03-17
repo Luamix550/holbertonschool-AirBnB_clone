@@ -7,6 +7,7 @@ import models
 import os
 import json
 
+
 class TestFileStorage(unittest.TestCase):
     """ This class testing fileStorage """
     def setUp(self):
@@ -56,6 +57,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.reload()
         key = f"{obj.__class__.__name__}.{obj.id}"
         self.assertIn(key, self.storage._FileStorage__objects)
+
 
 if __name__ == "__main__":
     unittest.main()
