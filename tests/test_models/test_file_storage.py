@@ -3,7 +3,9 @@ from unittest.mock import patch
 from io import StringIO
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+import models
 import os
+import json
 
 class TestFileStorage(unittest.TestCase):
     """ This class testing fileStorage """
@@ -16,16 +18,17 @@ class TestFileStorage(unittest.TestCase):
         """Limpiar el entorno después de cada prueba"""
         del self.storage
 
-    def test_file_path(self):
-        """Method to test if the file_path method from
-        file_storage module is actually working in order
-        to succesfully create this file"""
-        instance = FileStorage()
-        desired_file_path = "__file_path"
-        self.assertFalse(hasattr(instance, '__file_path'))
-        instance.save()
-        self.assertTrue(hasattr(instance, '__file_path' ))
-        self.assertEqual(instance.__file_path, desired_file_path)
+    def testFilePath(self):
+        self.assertEqual(self.models._FileStorage__file_path, "file.json")
+    # def test_file_path(self):
+    #     """Method to test if the file_path method from
+    #     file_storage module is actually working in order
+    #     to succesfully create this file"""
+    #     instance = FileStorage()
+    #     desired_file_path = instance._FileStorage__file_path
+    #     instance.save()
+    #     self.assertTrue(hasattr(instance, '_FileStorage__file_path'))
+    #     self.assertEqual(instance._FileStorage__file_path, desired_file_path)
 
     def test__objects(self):
         """Test para verificar el atributo __objects"""
@@ -65,5 +68,3 @@ class TestFileStorage(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
