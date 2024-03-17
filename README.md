@@ -11,7 +11,7 @@ To run the AirBnB clone console, ensure you have Python 3.8.5 or later installed
 1. Clone the repository:
 
 ```bash
-git clone <repository_url>
+git clone <https://github.com/Luamix550/holbertonschool-AirBnB_clone.git>
 ```
 
 2. Navigate to the project directory:
