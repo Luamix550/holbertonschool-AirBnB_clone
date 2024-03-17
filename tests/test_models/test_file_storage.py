@@ -20,15 +20,6 @@ class TestFileStorage(unittest.TestCase):
 
     def testFilePath(self):
         self.assertEqual(self.models._FileStorage__file_path, "file.json")
-    # def test_file_path(self):
-    #     """Method to test if the file_path method from
-    #     file_storage module is actually working in order
-    #     to succesfully create this file"""
-    #     instance = FileStorage()
-    #     desired_file_path = instance._FileStorage__file_path
-    #     instance.save()
-    #     self.assertTrue(hasattr(instance, '_FileStorage__file_path'))
-    #     self.assertEqual(instance._FileStorage__file_path, desired_file_path)
 
     def test__objects(self):
         """Test para verificar el atributo __objects"""
