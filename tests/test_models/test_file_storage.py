@@ -3,6 +3,7 @@ from unittest.mock import patch
 from io import StringIO
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+import models
 import os
 import json
 
@@ -17,6 +18,8 @@ class TestFileStorage(unittest.TestCase):
         """Limpiar el entorno después de cada prueba"""
         del self.storage
 
+    def testFilePath(self):
+        self.assertEqual(self.models._FileStorage__file_path, "file.json")
     # def test_file_path(self):
     #     """Method to test if the file_path method from
     #     file_storage module is actually working in order
