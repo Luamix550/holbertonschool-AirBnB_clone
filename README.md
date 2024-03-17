@@ -9,7 +9,7 @@
 
 <h1>AirBnB Clone - The Console</h1>
 
-<a href="https://i.imgur.com/3oxzjru.png"><img src="https://i.imgur.com/3oxzjru.png" title="source: imgur.com" /></a>
+<a href="https://i.imgur.com/w4HzD77.png"><img src="https://i.imgur.com/w4HzD77.png" title="source: imgur.com" /></a>
 
 <p>This project is a command-line interface (CLI) implementation for managing AirBnB objects. It serves as the first step towards building a full web application, the AirBnB clone. The CLI allows users to create, retrieve, update, and delete various objects such as users, states, cities, and places.</p>
 
