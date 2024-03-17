@@ -16,30 +16,31 @@ class TestFileStorage(unittest.TestCase):
         self.storage._FileStorage__objects = {}
 
     def tearDown(self):
-        """Limpiar el entorno después de cada prueba"""
+        """Clean up the environment after each test"""
         del self.storage
 
     def testFilePath(self):
+        """Test to check the file path"""
         self.assertEqual(self.models._FileStorage__file_path, "file.json")
 
     def test__objects(self):
-        """Test para verificar el atributo __objects"""
+         """Test to verify the __objects attribute"""
         self.assertIsInstance(self.storage._FileStorage__objects, dict)
         self.assertEqual(len(self.storage._FileStorage__objects), 0)
 
     def test_all(self):
-        """Test para verificar el método all()"""
+        """Test to verify the all() method"""
         self.assertIsInstance(self.storage.all(), dict)
 
     def test_new(self):
-        """Test para verificar el método new()"""
+        """Test to verify the new() method"""
         obj = BaseModel()
         self.storage.new(obj)
         key = f"{obj.__class__.__name__}.{obj.id}"
         self.assertIn(key, self.storage._FileStorage__objects)
 
     def test_save(self):
-        """Test para verificar el método save()"""
+         """Test to verify the save() method"""
         obj = BaseModel()
         self.storage.new(obj)
         self.storage.save()
@@ -50,7 +51,7 @@ class TestFileStorage(unittest.TestCase):
 
     @patch('builtins.input', side_effect=["BaseModel"])
     def test_reload(self, mock_input):
-        """Test para verificar el método reload()"""
+        """Test to verify the reload() method"""
         obj = BaseModel()
         self.storage.new(obj)
         self.storage.save()
