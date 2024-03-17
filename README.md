@@ -1,86 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirBnB Clone - The Console</title>
+</head>
+<body>
 
-# AirBnB Clone - The Console
+<h1>AirBnB Clone - The Console</h1>
 
-<a href="https://imgur.com/3oxzjru"><img src="https://imgur.com/3oxzjru" title="source: imgur.com" /></a>
+<p>This project is a command-line interface (CLI) implementation for managing AirBnB objects. It serves as the first step towards building a full web application, the AirBnB clone. The CLI allows users to create, retrieve, update, and delete various objects such as users, states, cities, and places.</p>
 
-This project is a command-line interface (CLI) implementation for managing AirBnB objects. It serves as the first step towards building a full web application, the AirBnB clone. The CLI allows users to create, retrieve, update, and delete various objects such as users, states, cities, and places.
+<h2>Installation</h2>
 
-## Installation
+<p>To run the AirBnB clone console, ensure you have Python 3.8.5 or later installed on your system. Follow these steps:</p>
 
-To run the AirBnB clone console, ensure you have Python 3.8.5 or later installed on your system. Follow these steps:
+<ol>
+  <li>Clone the repository:</li>
+</ol>
 
+<pre><code>git clone <a href="https://github.com/Luamix550/holbertonschool-AirBnB_clone.git">https://github.com/Luamix550/holbertonschool-AirBnB_clone.git</a></code></pre>
 
-1. Clone the repository:
+<ol start="2">
+  <li>Navigate to the project directory:</li>
+</ol>
 
-```bash
-git clone <https://github.com/Luamix550/holbertonschool-AirBnB_clone.git>
-```
+<pre><code>cd AirBnB_clone</code></pre>
 
-2. Navigate to the project directory:
+<ol start="3">
+  <li>Execute the console:</li>
+</ol>
 
-```bash
-cd AirBnB_clone
-```
+<pre><code>./console.py</code></pre>
 
-3. Execute the console:
+<h2>Usage</h2>
 
-```bash
-./console.py
-```
+<p>Once the console is running, you can interact with it using various commands. Here's how you can get started:</p>
 
-## Usage
+<h3>Interactive Mode</h3>
 
-Once the console is running, you can interact with it using various commands. Here's how you can get started:
-
-### Interactive Mode
-
-```bash
-$ ./console.py
+<pre><code>$ ./console.py
 (hbnb) help
 
-Documented commands (type help <topic>):
+Documented commands (type help &lt;topic&gt;):
 ========================================
 EOF  help  quit
 
 (hbnb) 
-```
+</code></pre>
 
-### Non-Interactive Mode
+<h3>Non-Interactive Mode</h3>
 
-```bash
-$ echo "help" | ./console.py
+<pre><code>$ echo "help" | ./console.py
 (hbnb)
 
-Documented commands (type help <topic>):
+Documented commands (type help &lt;topic&gt;):
 ========================================
 EOF  help  quit
 (hbnb) 
-```
+</code></pre>
 
-### Available Commands
+<h3>Available Commands</h3>
 
-- `help`: Display information about available commands.
-- `quit`: Exit the console.
+<ul>
+  <li><code>help</code>: Display information about available commands.</li>
+  <li><code>quit</code>: Exit the console.</li>
+</ul>
 
-## Tests
+<h2>Tests</h2>
 
-To run the unit tests, execute the following command:
+<p>To run the unit tests, execute the following command:</p>
 
-```bash
-python3 -m unittest discover tests
-```
+<pre><code>python3 -m unittest discover tests</code></pre>
 
-## Contributing
+<h2>Contributing</h2>
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Create a new Pull Request
+<ol>
+  <li>Fork the repository</li>
+  <li>Create your feature branch (<code>git checkout -b feature/YourFeature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin feature/YourFeature</code>)</li>
+  <li>Create a new Pull Request</li>
+</ol>
 
+<h2>Authors</h2>
 
+<ul>
+  <li><a href="https://github.com/Luamix550">@Luamix550</a></li>
+  <li><a href="https://github.com/JuanRestrepoV">@JuanRestrepoV</a></li>
+</ul>
 
-## Authors
-
-- [@Luamix550](https://github.com/Luamix550)
-- [@JuanRestrepoV](https://github.com/JuanRestrepoV)
+</body>
+</html>
