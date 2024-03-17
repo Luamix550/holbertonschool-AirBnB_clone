@@ -25,7 +25,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertFalse(hasattr(instance, '__file_path'))
         instance.save()
         self.assertTrue(hasattr(instance, '__file_path' ))
-        self.assertEqual(instance.__file_path, desired_file_path)
+        self.assertEqual(instance._FileStorage__file_path, desired_file_path)
 
     def test__objects(self):
         """Test para verificar el atributo __objects"""
