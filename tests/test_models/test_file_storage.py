@@ -4,6 +4,7 @@ from io import StringIO
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 import os
+import json
 
 class TestFileStorage(unittest.TestCase):
     """ This class testing fileStorage """
@@ -21,7 +22,7 @@ class TestFileStorage(unittest.TestCase):
         file_storage module is actually working in order
         to succesfully create this file"""
         instance = FileStorage()
-        desired_file_path = instance._FileStorage__file_path
+        desired_file_path = "file.json"
         self.assertFalse(hasattr(instance, '__file_path'))
         instance.save()
         self.assertTrue(hasattr(instance, '__file_path' ))
