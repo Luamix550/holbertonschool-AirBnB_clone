@@ -4,7 +4,7 @@ from models.base_model import BaseModel
 from datetime import datetime
 
 
-class testBaseModel(unittest.TestCase):
+class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
         instance = BaseModel()
@@ -17,7 +17,7 @@ class testBaseModel(unittest.TestCase):
         it is the desired result"""
         instance = BaseModel()
         instance.id = '123'
-        instance.__class__ = 'Luis'
+        instance.__class__ = type('Luis', (object,), {})
         instance.created_at = datetime(2024, 3, 3)
         instance.updated_at = datetime(2024, 3, 3)
 
