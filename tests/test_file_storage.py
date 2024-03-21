@@ -24,7 +24,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(self.models._FileStorage__file_path, "file.json")
 
     def test__objects(self):
-         """Test to verify the __objects attribute"""
+        """Test to verify the __objects attribute"""
         self.assertIsInstance(self.storage._FileStorage__objects, dict)
         self.assertEqual(len(self.storage._FileStorage__objects), 0)
 
@@ -40,7 +40,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertIn(key, self.storage._FileStorage__objects)
 
     def test_save(self):
-         """Test to verify the save() method"""
+        """Test to verify the save() method"""
         obj = BaseModel()
         self.storage.new(obj)
         self.storage.save()

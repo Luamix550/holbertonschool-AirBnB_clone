@@ -86,8 +86,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, line):
-         """Print all instances of a specific
-           class or all classes if none is specified."""
+        """Print all instances of a specific class or all classes."""
         instance_list = []
         if line in list_class:
             for key, value in storage.all().items():
@@ -102,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, line):
-         """Update the attributes of a specific instance of a class. """
+        """Update the attributes of a specific instance of a class. """
         if not line:
             print("** class name missing **")
         else:
