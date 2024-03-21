@@ -12,8 +12,8 @@ class testBaseModel(unittest.TestCase):
         self.assertIsNotNone(instance.updated_at)
 
     def test_to_dict(self):
-        """Testing to_dict method creatin a directory
-        from the instance atributtes and checking if
+        """Testing to_dict method creating a dictionary
+        from the instance attributes and checking if
         it is the desired result"""
         instance = BaseModel()
         instance.id = '123'
@@ -24,10 +24,10 @@ class testBaseModel(unittest.TestCase):
         actual_result = instance.to_dict()
 
         desired_result = {
-            'id': '123'
-            '__class__': 'Luis'
-            'created_at': '2024, 3, 3'
-            'updated_at': '2024, 3, 3'
+            'id': '123',
+            '__class__': 'Luis',
+            'created_at': '2024-03-03T00:00:00',
+            'updated_at': '2024-03-03T00:00:00'
         }
 
         self.assertEqual(actual_result, desired_result)
